@@ -1,13 +1,158 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Doodle+Shadow&family=Rubik+Scribble&family=Sriracha&display=swap");
+
+:root {
+  --night: #0b090aff;
+  --eerie-black: #161a1dff;
+  --slate-gray: #2e2e2e;
+  --blood-red: #660708ff;
+  --cornell-red: #a4161aff;
+  --cornell-red-2: #ba181bff;
+  --imperial-red: #e5383bff;
+  --blue-shade: #6262e6;
+  --silver: #b1a7a6ff;
+  --timberwolf: #d3d3d3ff;
+  --white-smoke: #f5f3f4ff;
+  --white: #ffffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--eerie-black);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blue-shade);
+  padding-inline: 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+header .logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  height: 4rem;
+}
+
+header .search-container {
+  display: flex;
+  gap: 5px;
+}
+
+.search-container input {
+  height: 2rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  padding-inline: 1rem;
+}
+
+.search-container button {
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+@media (max-width: 700px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue-shade);
+    padding-inline: 20px;
+    padding-block: 0 5px;
+  }
+  header .logo img {
+    height: 2rem;
+  }
+  header .logo h1 {
+    color: var(--white-smoke);
+    text-shadow: 2px 2px 2px var(--night);
+    font-size: 1.5rem;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.movie-container {
+  align-self: start;
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+  align-items: center;
+  border-radius: 0.3rem;
+  background-color: var(--slate-gray);
+}
+
+.image-container {
+  width: 70%;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+}
+
+.movie-details {
+  padding-inline: 10px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+  height: calc(1.6rem * 2);
+  color: var(--blue-shade);
+}
+.movie-overview {
+  color: var(--white-smoke);
+  font-size: 0.8rem;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: calc(2 * 1.2rem);
+}
+
+.movie-other-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.movie-release-section,
+.movie-language-section {
+  color: var(--white-smoke);
+  font-size: 0.8rem;
+}
+.movie-release-date,
+.movie-language {
+  font-size: 1rem;
+  color: var(--blue-shade);
 }
