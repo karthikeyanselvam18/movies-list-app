@@ -58,8 +58,9 @@ export function MovieContainer(props: IMovieContainerProps) {
     <div className="movie-container" ref={movieContainerRef}>
       <div className="image-container">
         <img
-          src={`https://image.tmdb.org/t/p/w185/https://image.tmdb.org/t/p/w780${poster}`}
+          src={`https://image.tmdb.org/t/p/w780${poster}`}
           alt={`${title} poster`}
+          loading="lazy"
         />
       </div>
       <div className="movie-details">
