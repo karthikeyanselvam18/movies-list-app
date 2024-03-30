@@ -13,16 +13,21 @@ export function Header(props: IHeaderProps) {
   };
 
   const handleSubmit = (event: any) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     props.setSearch(searchTerm);
+    setSearchTerm("");
     event.preventDefault();
   };
 
   return (
     <header>
-      <div className="logo">
+      <a className="logo" onClick={handleSubmit}>
         <img src={popcorn_img} alt="" />
         <h1>Popcorn Paradox</h1>
-      </div>
+      </a>
       <form onSubmit={handleSubmit}>
         <div className="search-container">
           <input

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 export interface IMovieContainerProps {
   title: string;
@@ -18,13 +18,36 @@ export function MovieContainer(props: IMovieContainerProps) {
       original_language.charAt(0).toUpperCase() + original_language.slice(1);
   }
   const [isOverviewOpened, setIsOverviewOpened] = useState(false);
+  const movieContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        movieContainerRef.current &&
+        !movieContainerRef.current.contains(event.target as Node)
+      ) {
+        setIsOverviewOpened(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   let overviewStyle = isOverviewOpened
-    ? { display: "inline", maxHeight: "none", overflow: "auto" }
+    ? {
+        display: "inline",
+        maxHeight: "none",
+        overflow: "auto",
+        backgroundColor: "#5a5a5af5",
+      }
     : {
         display: "-webkit-box",
         maxHeight: "calc(2 * 1.2rem)",
         overflow: "hidden",
+        backgroundColor: "transparent",
       };
 
   function handleOverviewClick() {
@@ -32,22 +55,24 @@ export function MovieContainer(props: IMovieContainerProps) {
   }
 
   return (
-    <div className="movie-container">
+    <div className="movie-container" ref={movieContainerRef}>
       <div className="image-container">
         <img
           src={`https://image.tmdb.org/t/p/w185/https://image.tmdb.org/t/p/w780${poster}`}
-          alt=""
+          alt={`${title} poster`}
         />
       </div>
       <div className="movie-details">
         <span className="movie-title">{title}</span>
-        <span
-          className="movie-overview"
-          onClick={handleOverviewClick}
-          style={overviewStyle}
-        >
-          {overview}
-        </span>
+        <div className="movie-overview-placeholder">
+          <span
+            className="movie-overview"
+            onClick={handleOverviewClick}
+            style={overviewStyle}
+          >
+            {overview}
+          </span>
+        </div>
         <div className="movie-other-details">
           <span className="movie-release-section">
             Release:{" "}
