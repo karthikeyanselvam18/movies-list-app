@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/movies-list-app/static/css/main.4ead8446.css",
-    "main.js": "/movies-list-app/static/js/main.c2a1a9f6.js",
+    "main.js": "/movies-list-app/static/js/main.a22fd553.js",
     "static/js/453.889456e0.chunk.js": "/movies-list-app/static/js/453.889456e0.chunk.js",
     "static/media/popcorn.png": "/movies-list-app/static/media/popcorn.860be52d2da7e10ea054.png",
     "index.html": "/movies-list-app/index.html",
     "main.4ead8446.css.map": "/movies-list-app/static/css/main.4ead8446.css.map",
-    "main.c2a1a9f6.js.map": "/movies-list-app/static/js/main.c2a1a9f6.js.map",
+    "main.a22fd553.js.map": "/movies-list-app/static/js/main.a22fd553.js.map",
     "453.889456e0.chunk.js.map": "/movies-list-app/static/js/453.889456e0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4ead8446.css",
-    "static/js/main.c2a1a9f6.js"
+    "static/js/main.a22fd553.js"
   ]
 }
